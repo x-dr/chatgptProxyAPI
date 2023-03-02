@@ -26,7 +26,7 @@ const chatgptMsg = async (request,opts={})=>{
 
 
 
-// const id = await chatgptMsg("写一个JavaScript holle word")
+// const id = await chatgptMsg("写一个JavaScript Hello World")
 
         
 // chatgptMsg("详细点",{parentMessageId: id.id})
