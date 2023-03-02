@@ -17,18 +17,6 @@ app.get('/', async (req, res) => {
         <title>api</title>
     </head>
     <body>
-        <h1>欢迎使用</h1>
-        <br/>
-        curl --location 'https://api.api.api/chatgpt' \
-        --header 'Content-Type: application/json' \
-        --data '{
-           "q": question,
-           "opts":{
-            "parentMessageId": res.id (可为空)
-          }
-       }'
-    
-       <br/>
         <p id="ipinfo"></p>
         <script>
             (function () {
