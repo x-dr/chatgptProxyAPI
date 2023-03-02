@@ -19,7 +19,7 @@ app.get('/', async (req, res) => {
     <body>
         <h1>欢迎使用</h1>
         <br/>
-        curl --location 'https://api.api.api/chatgtp' \
+        curl --location 'https://api.api.api/chatgpt' \
         --header 'Content-Type: application/json' \
         --data '{
            "q": question,
@@ -61,7 +61,7 @@ app.get('/', async (req, res) => {
  * 
  */
 
- app.post('/chatgtp', async (req, res) => {
+ app.post('/chatgpt', async (req, res) => {
     const { q, opts = {} } = req.body
     // console.log(q);
     const chatgtp = await chatgptMsg(q, opts)
