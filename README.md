@@ -79,3 +79,24 @@ console.log(res.data.text);
 ```
 
 </details>
+
+
+
+<details>
+<summary>curl</summary>
+
+
+```shell
+curl --location 'http://api/chatgpt' \
+--header 'Content-Type: application/json' \
+--data '{
+    "q": "xxx",
+    "opts":{
+        "parentMessageId": res.data.id (可为空)
+    }
+}'
+
+```
+
+<details>
+
