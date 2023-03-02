@@ -11,6 +11,17 @@
 5. 点击Deploy部署你的应用程序。
 
 
+### Docker部署
+
+```shell
+docker run -dit \
+  -p 3035:3035 \
+  -e OPENAI_API_KEY="sk-xxxxxxxxxxxxxx" \
+  --name chatgptproxyapi \
+  --restart unless-stopped \
+  gindex/chatgptproxyapi:latest
+```
+
 ### 使用
 <details>
 <summary>使用</summary>
