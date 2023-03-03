@@ -5,7 +5,7 @@
 
 2. 注册，登陆，`Start building`，取一个子域名，`Create a Worker`。
 
-3. 复制 [cf_worker.js](https://cdn.jsdelivr.net/gh/x-dr/chatgptProxyAPI@main/cf_worker.js)  到左侧代码框，`Save and deploy`。如果正常，右侧应显示首页。
+3. 复制 [cf_worker.js](https://cdn.jsdelivr.net/gh/x-dr/chatgptProxyAPI@main/cf_worker.js)  到左侧代码框，`Save and deploy`。
 
 4. 使用 
 ```bash
