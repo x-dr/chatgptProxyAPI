@@ -19,12 +19,8 @@ curl --location 'https://openai.1rmb.tk/v1/chat/completions' \
 
 ```
 
+![post](./post.png)
 
-
-
-## 旧方法
-
-[旧方法](./old.md)
 
 
 
