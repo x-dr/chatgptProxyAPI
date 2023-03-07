@@ -21,7 +21,6 @@ curl --location 'https://openai.1rmb.tk/v1/chat/completions' \
  }'
 
 ```
-<img src="./post.png" height="50%" width="50%">
 
 <details>
 
