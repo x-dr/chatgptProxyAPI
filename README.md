@@ -1,5 +1,5 @@
 
-## cf worker版本部署
+## cf worker中转api.openai.com
 
 1. 首页：https://workers.cloudflare.com
 
@@ -91,3 +91,6 @@ curl --location 'https://openai.1rmb.tk/dashboard/billing/credit_grants' \
 
 
 
+### 查询 OPENAI API 余额
+
+[https://checkbilling.1rmb.tk/](https://checkbilling.1rmb.tk/)
