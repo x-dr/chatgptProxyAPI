@@ -6,6 +6,7 @@ import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 async function submit(key) {
   try {
     // const url = `https://openai.1rmb.tk/dashboard/billing/credit_grants`
+    // const response = await fetch('https://openai.1rmb.tk/dashboard/billing/credit_grants', {
     const response = await fetch('/api/dashboard/billing/credit_grants', {
       method: 'get',
       headers: {
@@ -14,9 +15,13 @@ async function submit(key) {
       }
     })
     if (!response.ok) {
-      throw new Error('API request failed')
+      const data = await response.json()
+      // console.log(data);
+      return data
+      // throw new Error('API request failed')
     }
     const data = await response.json()
+    // console.log(data);
     return data
   } catch (error) {
     console.error(error)
@@ -28,8 +33,6 @@ export default function Home() {
   const [balance, setBalance] = useState(null)
   const [alert, setAlert] = useState(null)
   const keyRef = useRef(null)
-
-
   const [ipinfo, setIpinfo] = useState('正在获取 IP 信息...')
   const [ipinfov, setIpinfov] = useState('正在获取 IP 信息...')
 
@@ -71,11 +74,13 @@ export default function Home() {
             setLoading(false)
             setAlert({ type: 'success', message: '查询成功' })
           } else if (data.hasOwnProperty('error')) {
+            // console.log(data);
             setLoading(false)
-            setAlert({ type: 'error', message: res.error.message })
+            setAlert({ type: 'error', message: data.error.message })
           }
         })
-        .catch((e) => {
+        .catch(e => {
+          // console.log(e);
           setAlert({ type: 'error', message: '查询失败，请检查 API Key 是否正确' })
           setLoading(false)
         })
@@ -121,8 +126,10 @@ export default function Home() {
         </main>
 
         <footer className={styles.footer}>
+        <i><a className={styles.a} href="https://github.com/x-dr/chatgptProxyAPI">By @x-dr</a></i>
           <p >{ipinfo}</p>
           <p >{ipinfov}</p>
+          
         </footer>
 
       </div>
