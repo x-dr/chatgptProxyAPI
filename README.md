@@ -11,6 +11,6 @@
 
 
 
-## 利用vercel中转api.openai.com
+## 利用nextjs edge中转api.openai.com
 
 待续...
