@@ -1,7 +1,7 @@
 
 ## 利用Cloudflare Worker中转api.openai.com
 
-**本文内容来自[noobnooc/discussions/9](https://github.com/noobnooc/noobnooc/discussions/9)略有修改**
+**本文内容来自[noobnooc/discussions/9](https://github.com/noobnooc/noobnooc/discussions/9)有修改**
 
 
 1. 新建一个 Cloudflare Worker
