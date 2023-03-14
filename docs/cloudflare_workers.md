@@ -1,6 +1,9 @@
 
 ## 利用Cloudflare Worker中转api.openai.com
 
+**本文内容来自[noobnooc/discussions/9](https://github.com/noobnooc/noobnooc/discussions/9)略有修改**
+
+
 1. 新建一个 Cloudflare Worker
 2. 复制 [cf_worker.js](https://cdn.jsdelivr.net/gh/x-dr/chatgptProxyAPI@main/cf_worker.js)  里的代码粘贴到 Worker 中并部署
 3. 给 Worker 绑定一个没有被 GFW 墙的域名
