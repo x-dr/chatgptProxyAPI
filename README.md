@@ -13,4 +13,8 @@
 
 ## 利用nextjs edge中转api.openai.com
 
-待续...
+### 利用Cloudflare pages部署
+
+> [官方文档](https://developers.cloudflare.com/pages/framework-guides/deploy-a-nextjs-site/)
+
+1. 

@@ -116,27 +116,22 @@ export default function Home() {
             {loading ? 'Loading...' : '查询'}
           </button>
 
-          {/* {balance && (
+          {balance && (
             <div className={styles.balance}>
               <p>额度总量：{balance.total_granted}</p>
               <p>已用额度：{balance.total_used}</p>
               <p>剩余额度：{balance.total_available}</p>
             </div>
-          )} */}
-          <div className={styles.balance}>
-            <p>额度总量：</p>
-            <p>已用额度：</p>
-            <p>剩余额度：</p>
-          </div>
+          )}
 
         </main>
 
         <footer className={styles.footer}>
-            <i><a className={styles.a} href="https://github.com/x-dr/chatgptProxyAPI">By @x-dr</a></i>
-            <p >{ipinfo}</p>
-            <p >{ipinfov}</p>
+          <i><a className={styles.a} href="https://github.com/x-dr/chatgptProxyAPI">By @x-dr</a></i>
+          <p >{ipinfo}</p>
+          <p >{ipinfov}</p>
 
-          </footer>
+        </footer>
 
       </div>
       <style global jsx>{`
