@@ -40,4 +40,11 @@
 
 5. 点击`Save and Deploy`部署，然后点`Continue to project`即可看到访问域名
 
+
+> 把官方接口的`https://api.openai.com`替换为`https://xxx.pages.dev/api` 即可 (https://xxx.pages.dev/api 为你的域名)
+
+*注意路径多了一个`api`*
+
 **[详细教程](./docs/cloudflare_pages.md)**
+
+
