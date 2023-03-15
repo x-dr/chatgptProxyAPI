@@ -17,18 +17,7 @@
   opacity: .2;
 }
 
-/* .main{
-  z-index: 9999; 
-} */
 
-.main[x-cloak] {
-  opacity: 0;
-}
-
-.main:not([x-cloak]) {
-  opacity: 1;
-  transition: opacity .3s;
-}
 
 
 
@@ -53,36 +42,7 @@
   outline: 0;
 }
 
-/* .details {
-  margin: 1rem 0 2rem;
-  border: 1px solid var(--border-color);
-  border-radius: .25rem;
-  transition: background .3s;
-}
 
-.details[open] {
-  background: #fff;
-}
-
-.details summary {
-  padding: .5rem 1rem;
-  font-weight: 500;
-  user-select: none;
-  cursor: pointer;
-  opacity: .8;
-  outline: 0;
-}
-
-.details div {
-  padding: 1rem;
-  border-top: 1px solid var(--border-color);
-}
-
-.details small {
-  margin: 0;
-  font-size: .875rem;
-  line-height: 2;
-} */
 
 .button {
   appearance: none;
@@ -135,10 +95,32 @@
   animation: rotate .5s linear infinite;
 }
 
+.main {
+  padding: 20px;
+  box-sizing: border-box;
+   height: calc(100% - 50px); /*//减去footer高度 */
+   overflow-y: auto; /*使用滚动条 */
+}
+
+
+.main[x-cloak] {
+  opacity: 0;
+}
+
+.main:not([x-cloak]) {
+  opacity: 1;
+  transition: opacity .3s;
+}
+
 
 .footer {
   position: absolute;
   bottom: 0;
+  width: 100%;
+  height: 50px;
+
+  /* position: absolute; */
+  /* bottom: 0; */
   left: 50%;
   transform: translateX(-50%);
   padding: 1rem;
@@ -148,7 +130,12 @@
 
 }
 
-
+.container {
+  min-height: 90vh;
+  position: relative;
+  box-sizing: border-box;
+  padding-bottom: 50px; /* 设置和footer高度相同的padding */
+}
 
 
 

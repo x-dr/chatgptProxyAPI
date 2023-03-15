@@ -38,7 +38,7 @@ export default function Home() {
 
 
   useEffect(() => {
-      fetch('https://forge.speedtest.cn/api/location/info')
+    fetch('https://forge.speedtest.cn/api/location/info')
       .then(res1 => res1.json())
       .then((res1) => {
         const info1 = `国内的IP: ${res1.ip} (${res1.province} ${res1.city} ${res1.distinct} ${res1.isp})`
@@ -48,12 +48,12 @@ export default function Home() {
         console.log(err);
         setIpinfo('获取国内的IP信息失败')
       })
-      fetch('https://ip.1rmb.tk/ip')
+    fetch('https://ip.1rmb.tk/ip')
       .then(res2 => res2.json())
-      .then((res2)=>{
+      .then((res2) => {
         const info2 = `访问本站的IP: ${res2.ip} (${res2.addr} ${res2.info})`
         setIpinfov(info2)
-      }).catch(err=>{
+      }).catch(err => {
         console.log(err);
         setIpinfov('获取访问本站的IP信息失败')
       })
@@ -61,13 +61,13 @@ export default function Home() {
   }, [])
 
 
-  
-  const handleClick = () => {
+
+  const handleClick = async () => {
     setAlert(null)
     setLoading(true)
     const key = keyRef.current.value
     if (/^sk-.{21,}$/.test(key)) {
-      submit(key)
+      await submit(key)
         .then((data) => {
           if (data.hasOwnProperty('total_granted')) {
             setBalance(data)
@@ -89,9 +89,9 @@ export default function Home() {
       setLoading(false)
     }
   }
-  
-  
-  
+
+
+
   return (
     <>
       <Head>
@@ -101,7 +101,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
+      <div className={styles.container}>
         <header className={styles.header}>
           <h1 className={styles.h1}>查询 ChatGPTAPI 余额</h1>
         </header>
@@ -116,21 +116,27 @@ export default function Home() {
             {loading ? 'Loading...' : '查询'}
           </button>
 
-          {balance && (
+          {/* {balance && (
             <div className={styles.balance}>
               <p>额度总量：{balance.total_granted}</p>
               <p>已用额度：{balance.total_used}</p>
               <p>剩余额度：{balance.total_available}</p>
             </div>
-          )}
+          )} */}
+          <div className={styles.balance}>
+            <p>额度总量：</p>
+            <p>已用额度：</p>
+            <p>剩余额度：</p>
+          </div>
+
         </main>
 
         <footer className={styles.footer}>
-        <i><a className={styles.a} href="https://github.com/x-dr/chatgptProxyAPI">By @x-dr</a></i>
-          <p >{ipinfo}</p>
-          <p >{ipinfov}</p>
-          
-        </footer>
+            <i><a className={styles.a} href="https://github.com/x-dr/chatgptProxyAPI">By @x-dr</a></i>
+            <p >{ipinfo}</p>
+            <p >{ipinfov}</p>
+
+          </footer>
 
       </div>
       <style global jsx>{`
@@ -146,6 +152,9 @@ export default function Home() {
             }
 
             body {
+              margin: 0;
+              padding: 0;
+
               max-width: 30rem;
               margin-left: auto;
               margin-right: auto;
