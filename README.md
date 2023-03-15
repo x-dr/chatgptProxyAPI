@@ -1,5 +1,5 @@
 
-## 利用Cloudflare Worker中转api.openai.com
+## 1、利用Cloudflare Worker中转api.openai.com
 
 1. 新建一个 Cloudflare Worker
 2. 复制 [cf_worker.js](https://cdn.jsdelivr.net/gh/x-dr/chatgptProxyAPI@main/cf_worker.js)  里的代码粘贴到 Worker 中并部署
@@ -11,7 +11,7 @@
 
 
 
-## 利用nextjs edge中转api.openai.com
+## 2、利用nextjs edge中转api.openai.com
 
 ### 利用Cloudflare pages部署
 
@@ -33,6 +33,7 @@
 
 
 > 在 `Environment variables (advanced)`添加一个参数
+
 |  Variable name	   | Value  |
 |  ----  | ----  |
 | NODE_VERSION   | 16 |
