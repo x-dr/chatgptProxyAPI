@@ -65,6 +65,8 @@ docker run -itd --name openaiproxy \
 
 #### 使用
 
+*api : http://vpsip:3000/api/v1/chat/completions*
+
 ```bash
 curl --location 'http://vpsip:3000/proxy/v1/chat/completions' \
 --header 'Authorization: Bearer sk-xxxxxxxxxxxxxxx' \
