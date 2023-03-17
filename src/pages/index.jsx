@@ -1,7 +1,8 @@
 import Head from 'next/head'
+// import { useRouter } from 'next/router';
 import styles from '@/styles/Home.module.css'
 import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
-
+import dynamic from 'next/dynamic';
 
 async function submit(key) {
   try {
@@ -36,6 +37,7 @@ export default function Home() {
   const [latency, setLatency] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
+  // const router = useRouter();
 
 
 
@@ -68,11 +70,11 @@ export default function Home() {
             setIsLoading(false);
           }
         })
-        .catch(err=>{
-          console.log(err);
-          setLatency('获取平均响应时间失败');
-          setIsLoading(false);
-        })
+      // .catch(err=>{
+      //   console.log(err);
+      //   setLatency('获取平均响应时间失败');
+      //   setIsLoading(false);
+      // })
     }
   }, [])
 
@@ -180,7 +182,6 @@ export default function Home() {
 
             </div>
           )}
-
         </main>
 
         <footer className={styles.footer}>
