@@ -38,6 +38,7 @@ export default function Home() {
 
 
   useEffect(() => {
+    // 底部ip获取
     fetch('https://forge.speedtest.cn/api/location/info')
       .then(res1 => res1.json())
       .then((res1) => {
@@ -48,19 +49,38 @@ export default function Home() {
         console.log(err);
         setIpinfo('获取国内的IP信息失败')
       })
-    fetch('https://ip.1rmb.tk/ip')
-      .then(res2 => res2.json())
-      .then((res2) => {
-        const info2 = `访问本站的IP: ${res2.ip} (${res2.addr} ${res2.info})`
-        setIpinfov(info2)
-      }).catch(err => {
-        console.log(err);
-        setIpinfov('获取访问本站的IP信息失败')
-      })
+    // fetch('https://ip.1rmb.tk/ip')
+    //   .then(res2 => res2.json())
+    //   .then((res2) => {
+    //     const info2 = `访问本站的IP: ${res2.ip} (${res2.addr} ${res2.info})`
+    //     setIpinfov(info2)
+    //   }).catch(err => {
+    //     console.log(err);
+    //     setIpinfov('获取访问本站的IP信息失败')
+    //   })
 
   }, [])
 
+  function formatDate(timestamp, format = 'YYYY-MM-DD HH:mm:ss') {
+    const date = new Date(timestamp * 1000);
 
+    const replacements = {
+      'YYYY': date.getFullYear(),
+      'MM': addLeadingZero(date.getMonth() + 1),
+      'DD': addLeadingZero(date.getDate()),
+      'HH': addLeadingZero(date.getHours()),
+      'mm': addLeadingZero(date.getMinutes()),
+      'ss': addLeadingZero(date.getSeconds())
+    };
+  
+    return format.replace(/YYYY|MM|DD|HH|mm|ss/g, match => {
+      return replacements[match];
+    });
+  }
+  
+  function addLeadingZero(num) {
+    return num.toString().padStart(2, '0');
+  }
 
   const handleClick = async () => {
     setAlert(null)
@@ -121,6 +141,8 @@ export default function Home() {
               <p>额度总量：{balance.total_granted}</p>
               <p>已用额度：{balance.total_used}</p>
               <p>剩余额度：{balance.total_available}</p>
+              <p>有效期起：{formatDate(balance.grants.data[0].effective_at)}</p>
+              <p>有效期止：{formatDate(balance.grants.data[0].expires_at)}</p>
             </div>
           )}
 
@@ -129,7 +151,7 @@ export default function Home() {
         <footer className={styles.footer}>
           <i><a className={styles.a} href="https://github.com/x-dr/chatgptProxyAPI">By @x-dr</a></i>
           <p >{ipinfo}</p>
-          <p >{ipinfov}</p>
+          {/* <p >{ipinfov}</p> */}
 
         </footer>
 
