@@ -72,12 +72,12 @@ export default function Home() {
       'mm': addLeadingZero(date.getMinutes()),
       'ss': addLeadingZero(date.getSeconds())
     };
-  
+
     return format.replace(/YYYY|MM|DD|HH|mm|ss/g, match => {
       return replacements[match];
     });
   }
-  
+
   function addLeadingZero(num) {
     return num.toString().padStart(2, '0');
   }
@@ -141,8 +141,13 @@ export default function Home() {
               <p>额度总量：{balance.total_granted}</p>
               <p>已用额度：{balance.total_used}</p>
               <p>剩余额度：{balance.total_available}</p>
-              <p>有效期起：{formatDate(balance.grants.data[0].effective_at)}</p>
-              <p>有效期止：{formatDate(balance.grants.data[0].expires_at)}</p>
+              {balance.grants.data[0].effective_at && (
+                <>
+                  <p>有效期起：{formatDate(balance.grants.data[0].effective_at)}</p>
+                  <p>有效期止：{formatDate(balance.grants.data[0].expires_at)}</p>
+                </>
+              )}
+
             </div>
           )}
 
