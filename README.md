@@ -1,4 +1,9 @@
 
+### Demo
+
+[https://chatai.1rmb.tk](https://chatai.1rmb.tk)
+
+
 ## 1、利用Cloudflare Worker中转api.openai.com
 
 1. 新建一个 Cloudflare Worker
@@ -49,3 +54,24 @@
 **[详细教程](./docs/cloudflare_pages.md)**
 
 
+### docker 部署（要境外vps）
+
+```bash
+docker run -itd --name openaiproxy \
+            -p 3000:3000 \
+            --restart=always \
+           gindex/openaiproxy:latest
+```
+
+#### 使用
+
+```bash
+curl --location 'http://vpsip:3000/api/v1/chat/completions' \
+--header 'Authorization: Bearer sk-xxxxxxxxxxxxxxx' \
+--header 'Content-Type: application/json' \
+--data '{
+   "model": "gpt-3.5-turbo",
+  "messages": [{"role": "user", "content": "Hello!"}]
+ }'
+
+```
