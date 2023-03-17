@@ -5,7 +5,6 @@ import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 
 async function submit(key) {
   try {
-    // const url = `https://openai.1rmb.tk/dashboard/billing/credit_grants`
     // const response = await fetch('https://openai.1rmb.tk/dashboard/billing/credit_grants', {
     const response = await fetch('/api/dashboard/billing/credit_grants', {
       method: 'get',
@@ -34,7 +33,10 @@ export default function Home() {
   const [alert, setAlert] = useState(null)
   const keyRef = useRef(null)
   const [ipinfo, setIpinfo] = useState('正在获取 IP 信息...')
-  const [ipinfov, setIpinfov] = useState('正在获取 IP 信息...')
+  const [latency, setLatency] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+
 
 
   useEffect(() => {
@@ -42,24 +44,52 @@ export default function Home() {
     fetch('https://forge.speedtest.cn/api/location/info')
       .then(res1 => res1.json())
       .then((res1) => {
-        const info1 = `国内的IP: ${res1.ip} (${res1.province} ${res1.city} ${res1.distinct} ${res1.isp})`
+        const info1 = `${res1.ip} (${res1.province} ${res1.city} ${res1.distinct} ${res1.isp})`
         setIpinfo(info1)
       })
       .catch(err => {
         console.log(err);
         setIpinfo('获取国内的IP信息失败')
       })
-    // fetch('https://ip.1rmb.tk/ip')
-    //   .then(res2 => res2.json())
-    //   .then((res2) => {
-    //     const info2 = `访问本站的IP: ${res2.ip} (${res2.addr} ${res2.info})`
-    //     setIpinfov(info2)
-    //   }).catch(err => {
-    //     console.log(err);
-    //     setIpinfov('获取访问本站的IP信息失败')
-    //   })
 
+    const numTests = 3; // 进行 3 次测试
+    let totalLatency = 0;
+    for (let i = 0; i < numTests; i++) {
+      const t1 = performance.now();
+      fetch('/api/v1/chat/completions')
+        .then(response => {
+          const t2 = performance.now();
+          const testLatency = t2 - t1;
+          // console.log(testLatency);
+          totalLatency += testLatency;
+
+          if (i === numTests - 1) {
+            setLatency(totalLatency / numTests);
+            setIsLoading(false);
+          }
+        })
+        .catch(err=>{
+          console.log(err);
+          setLatency('获取平均响应时间失败');
+          setIsLoading(false);
+        })
+    }
   }, [])
+
+
+  let latencyColor = 'black';
+
+
+  if (latency !== null) {
+    if (latency >= 500) {
+      latencyColor = 'red';
+    } else if (100 < latency <= 500) {
+      latencyColor = 'orange';
+    } else if (latency <= 100) {
+      // console.log(latency);
+      latencyColor = 'green';
+    }
+  }
 
   function formatDate(timestamp, format = 'YYYY-MM-DD HH:mm:ss') {
     const date = new Date(timestamp * 1000);
@@ -141,7 +171,7 @@ export default function Home() {
               <p>额度总量：{balance.total_granted}</p>
               <p>已用额度：{balance.total_used}</p>
               <p>剩余额度：{balance.total_available}</p>
-              {balance.grants.data[0].effective_at && (
+              {balance.grants.data && balance.grants.data[0] && (
                 <>
                   <p>有效期起：{formatDate(balance.grants.data[0].effective_at)}</p>
                   <p>有效期止：{formatDate(balance.grants.data[0].expires_at)}</p>
@@ -155,6 +185,11 @@ export default function Home() {
 
         <footer className={styles.footer}>
           <i><a className={styles.a} href="https://github.com/x-dr/chatgptProxyAPI">By @x-dr</a></i>
+          {isLoading ? (
+            <p>正在测试响应时间...</p>
+          ) : (
+            <p style={{ color: latencyColor }}>API平均响应时间：{latency.toFixed(2)}ms</p>
+          )}
           <p >{ipinfo}</p>
           {/* <p >{ipinfov}</p> */}
 
