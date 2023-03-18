@@ -23,7 +23,7 @@
 
 > [官方文档](https://developers.cloudflare.com/pages/framework-guides/deploy-a-nextjs-site/)
 
-1. Fork本项目
+1. ~~Fork本项目~~ 点击[Use this template](https://github.com/x-dr/chatgptProxyAPI/generate)按钮创建一个新的代码库。
 2. 登录到[Cloudflare](https://dash.cloudflare.com/)控制台.
 3. 在帐户主页中，选择`pages`> ` Create a project` > `Connect to Git`
 4. 选择你 Fork 的项目存储库，在`Set up builds and deployments`部分中，选择`Next.js`作为您的框架预设。您的选择将提供以下信息。
@@ -65,7 +65,7 @@ docker run -itd --name openaiproxy \
 
 #### 使用
 
-*api : http://vpsip:3000/api/v1/chat/completions*
+*api : http://vpsip:3000/proxy/v1/chat/completions*
 
 ```bash
 curl --location 'http://vpsip:3000/proxy/v1/chat/completions' \
