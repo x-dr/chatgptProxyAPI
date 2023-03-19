@@ -1,6 +1,6 @@
 ## 利用Cloudflare pages部署
 
-1. Fork本项目 [x-dr/chatgptProxyAPI](https://github.com/x-dr/chatgptProxyAPI/fork)
+1. ~~Fork本项目 [x-dr/chatgptProxyAPI](https://github.com/x-dr/chatgptProxyAPI/fork)~~ 点击[Use this template](https://github.com/x-dr/chatgptProxyAPI/generate)按钮创建一个新的代码库。
 2. 登录到[Cloudflare](https://dash.cloudflare.com/)控制台.
 3. 在帐户主页中，选择`pages`> ` Create a project` > `Connect to Git`
 ![Cloudflare_pages1.png](./img/Cloudflare_pages1.png)
