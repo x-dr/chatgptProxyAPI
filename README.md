@@ -3,6 +3,10 @@
 
 [https://chatai.1rmb.tk](https://chatai.1rmb.tk)
 
+> api
+```url
+https://openai.1rmb.tk
+```
 
 ## 1、利用Cloudflare Worker中转api.openai.com
 
