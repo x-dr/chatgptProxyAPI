@@ -8,6 +8,10 @@
 https://openai.1rmb.tk
 ```
 
+### 演示站为公共服务，如有大规模使用需求请自行部署，演示站有点不堪重负
+
+![worker](./docs/img/worker.png)
+
 ## 1、利用Cloudflare Worker中转api.openai.com
 
 1. 新建一个 Cloudflare Worker
