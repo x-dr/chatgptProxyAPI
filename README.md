@@ -8,6 +8,12 @@
 https://openai.1rmb.tk
 ```
 
+或
+
+```url
+https://openai-proxy-api.pages.dev/api
+```
+
 ### 演示站为公共服务，如有大规模使用需求请自行部署，演示站有点不堪重负
 
 ![worker](./docs/img/worker.png)
