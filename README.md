@@ -93,6 +93,7 @@ curl --location 'http://vpsip:3000/proxy/v1/chat/completions' \
 ```
 
 
-## Stargazers over time
+## Star History
 
-[![Stargazers over time](https://starchart.cc/x-dr/chatgptProxyAPI.svg)](https://starchart.cc/x-dr/chatgptProxyAPI)
+[![Star History Chart](https://api.star-history.com/svg?repos=x-dr/chatgptProxyAPI&type=Date)](https://star-history.com/#x-dr/chatgptProxyAPI&Date)
+
