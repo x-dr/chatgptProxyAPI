@@ -93,6 +93,110 @@ curl --location 'http://vpsip:3000/proxy/v1/chat/completions' \
 ```
 
 
+## 用法
+
+
+<details>
+
+<summary>JavaScript用fetch</summary>
+
+```javascript
+const requestOptions = {
+    method: 'POST',
+    headers: {
+        "Authorization": "Bearer sk-xxxxxxxxxxxx",
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        "model": "gpt-3.5-turbo",
+        "messages": [
+            {
+                "role": "user",
+                "content": "hello word"
+            }
+        ]
+    })
+};
+
+fetch("https://openai.1rmb.tk/v1/chat/completions", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+  
+```
+
+</details>
+
+
+
+<details>
+
+<summary>用python</summary>
+
+```python
+import requests
+
+url = "https://openai.1rmb.tk/v1/chat/completions"
+api_key = 'sk-xxxxxxxxxxxxxxxxxxxx'
+
+headers = {
+  'Authorization': f'Bearer {api_key}',
+  'Content-Type': 'application/json'
+}
+
+payload = {
+  "model": "gpt-3.5-turbo",
+  "messages": [
+    {
+      "role": "user",
+      "content": "hello word"
+    }
+  ]
+}
+
+try:
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status() # 抛出异常，如果响应码不是200
+    data = response.json()
+    print(data)
+except requests.exceptions.RequestException as e:
+    print(f"请求错误: {e}")
+except json.JSONDecodeError as e:
+    print(f"无效的 JSON 响应: {e}")
+```
+
+</details>
+
+
+
+<details>
+<summary>用nodejs chatgpt库</summary>
+
+[transitive-bullshit/chatgpt-api](https://github.com/transitive-bullshit/chatgpt-api)
+
+```javascript
+import { ChatGPTAPI } from 'chatgpt'
+
+async function example() {
+  const api = new ChatGPTAPI({
+    apiKey: "sk-xxxxxxxxxxxxxx",
+  // proxy+/v1
+    apiBaseUrl:"https://openai.1rmb.tk/v1"
+
+
+  })
+
+  const res = await api.sendMessage('Hello World!')
+  console.log(res.text)
+}
+
+example()
+
+```
+
+</details>
+
+
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=x-dr/chatgptProxyAPI&type=Date)](https://star-history.com/#x-dr/chatgptProxyAPI&Date)
