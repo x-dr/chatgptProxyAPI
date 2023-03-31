@@ -29,9 +29,11 @@ https://openai-proxy-api.pages.dev/api
 **[详细教程](./docs/cloudflare_workers.md)**
 
 
+## 2、使用CloudFlare Pages进行反代
 
+**[详细教程](./docs/cloudflare_proxy_pages.md)**
 
-## 2、利用nextjs edge中转api.openai.com
+## 3、利用nextjs edge中转api.openai.com
 
 ### 利用Cloudflare pages部署
 
