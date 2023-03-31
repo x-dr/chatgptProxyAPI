@@ -29,7 +29,7 @@ https://openai-proxy-api.pages.dev/api
 **[详细教程](./docs/cloudflare_workers.md)**
 
 
-## 2、使用CloudFlare Pages进行反代
+## 2、使用CloudFlare Pages进行中转
 
 **[详细教程](./docs/cloudflare_proxy_pages.md)**
 
