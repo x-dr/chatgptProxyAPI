@@ -69,8 +69,13 @@ https://openai-proxy-api.pages.dev/api
 
 **[详细教程](./docs/cloudflare_pages.md)**
 
+### docker 部署（要境外vps） 
 
-### docker 部署（要境外vps）
+> 好像不支持sse 所以不建议
+
+<details>
+
+<summary>e.g.</summary>
 
 ```bash
 docker run -itd --name openaiproxy \
@@ -93,6 +98,9 @@ curl --location 'http://vpsip:3000/proxy/v1/chat/completions' \
  }'
 
 ```
+
+</details>
+
 
 
 ## 用法
