@@ -95,4 +95,4 @@ async function handleRequest(request) {
 
 ### 用法 
 
-**[参考](https://github.com/x-dr/chatgptProxyAPI#%E7%94%A8%E6%B3%95)**
+**[参考](https://github.com/x-dr/chatgptProxyAPI#用法)**
