@@ -86,12 +86,15 @@ export default function Home() {
   const [ipinfo, setIpinfo] = useState('正在获取 IP 信息...')
   const [latency, setLatency] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [proxylink, setproxyLink] = useState("");
 
   // const router = useRouter();
 
 
 
   useEffect(() => {
+    const { origin } = location;
+    setproxyLink(`${origin}/api`);
     // 底部ip获取
     fetch('https://forge.speedtest.cn/api/location/info')
       .then(res1 => res1.json())
@@ -199,7 +202,7 @@ export default function Home() {
           <button className={`${styles.button} ${loading ? styles.loading : ''}`} disabled={loading} onClick={handleClick}>
             {loading ? 'Loading...' : '查询'}
           </button>
-
+          <p className={styles.balance}>API接口：<a className={styles.proxy}>{proxylink}</a></p>
           {balance && (
             <div className={styles.balance}>
               <p>账号类型：{balance.plan}</p>
@@ -208,9 +211,10 @@ export default function Home() {
               <p>剩余额度：{balance.total_available}</p>
               <p>有效期起：{formatDate(balance.startDate)}</p>
               <p>有效期止：{formatDate(balance.endDate)}</p>
-
             </div>
           )}
+
+          
         </main>
 
         <footer className={styles.footer}>
