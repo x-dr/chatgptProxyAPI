@@ -1,7 +1,7 @@
 import Head from 'next/head'
 // import { useRouter } from 'next/router';
 import styles from '@/styles/Home.module.css'
-import { useState, useRef, useEffect} from 'react'
+import { useState, useRef, useEffect } from 'react'
 
 
 function formatDate(timestamp, format = 'YYYY-MM-DD HH:mm:ss') {
@@ -57,11 +57,11 @@ async function submit(key) {
         method: 'get',
         headers: headers
       })
-      
+
       const usageData = await response.json();
       console.log(usageData);
       // 账号类型
-      const plan = subscriptionData.plan.id
+      const plan = subscriptionData.plan.title
       // 总
       const total_granted = subscriptionData.hard_limit_usd;
       // 已用
@@ -69,7 +69,7 @@ async function submit(key) {
       // 剩余额度
       const total_available = total_granted - total_used;
 
-      return {plan,total_granted,total_used,total_available,endDate,startDate}
+      return { plan, total_granted, total_used, total_available, endDate, startDate }
 
     }
 
@@ -214,7 +214,7 @@ export default function Home() {
             </div>
           )}
 
-          
+
         </main>
 
         <footer className={styles.footer}>
