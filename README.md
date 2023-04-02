@@ -207,6 +207,47 @@ example()
 </details>
 
 
+
+<details>
+
+<summary>查询余额</summary>
+
+```javascript
+    const headers = {
+      'content-type': 'application/json',
+      'Authorization': `Bearer sk-xxxxxxxxxxxxxxxxx`
+    }
+    // 查是否订阅
+    const subscription = await fetch("https://openai.1rmb.tk/v1/dashboard/billing/subscription", {
+      method: 'get',
+      headers: headers
+    })
+    if (!subscription.ok) {
+      const data = await subscription.json()
+      // console.log(data);
+      return data
+      // throw new Error('API request failed')
+    } else {
+      const subscriptionData = await subscription.json()
+      const endDate = subscriptionData.access_until
+      const startDate = new Date(endDate - 90 * 24 * 60 * 60);
+      console.log(formatDate(endDate, "YYYY-MM-DD"));
+      console.log(formatDate(startDate, "YYYY-MM-DD"));
+      const response = await fetch(`https://openai.1rmb.tk/v1/dashboard/billing/usage?start_date=${formatDate(startDate, "YYYY-MM-DD")}&end_date=${formatDate(endDate, "YYYY-MM-DD")}`, {
+        method: 'get',
+        headers: headers
+      })
+      
+      const usageData = await response.json();
+      // 账号类型
+      const plan = subscriptionData.plan.id
+      console.log(usageData);
+      }
+
+```
+
+</details>
+
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=x-dr/chatgptProxyAPI&type=Date)](https://star-history.com/#x-dr/chatgptProxyAPI&Date)
