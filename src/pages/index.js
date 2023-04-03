@@ -62,7 +62,7 @@ async function submit(key) {
       console.log(usageData);
       // 账号类型
       // const plan = subscriptionData.plan.title
-      const plan = (subscriptionData.plan.title !== "free") ? "Pay-as-you-go" : "free";
+      const plan = (subscriptionData.plan.title === "Pay-as-you-go") ? "Pay-as-you-go" : subscriptionData.plan.id;
 
       // 总
       const total_granted = subscriptionData.hard_limit_usd;
