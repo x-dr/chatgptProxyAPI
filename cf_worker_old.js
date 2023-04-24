@@ -20,5 +20,3 @@ async function handleRequest(request) {
   modifiedResponse.headers.set('Access-Control-Allow-Origin', headers_Origin);
   return modifiedResponse;
 }
-
-

@@ -173,3 +173,14 @@
   border-radius: 0.5rem;
   background-color: #f8f8f8;
 }
+
+
+
+.proxy{
+    color: #0077cc;
+    text-decoration: none;
+    background-color: #f0f0f0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}

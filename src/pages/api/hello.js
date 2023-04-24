@@ -1,8 +1,8 @@
-// v1/chat/completions
+// /api/hello
 async function handler(req) {
   return new Response(
     JSON.stringify({
-      name: 'Jim Halpert',
+      name: 'Hello word！',
     }),
     {
       status: 200,

@@ -1,8 +1,12 @@
 
 ## 利用Cloudflare Worker中转api.openai.com
 
-**本文内容来自[noobnooc/discussions/9](https://github.com/noobnooc/noobnooc/discussions/9)有修改**
 
+由于 Cloudflare Worker的域名`workers.dev`被墙境内要绑定自己的域名才能访问，但`CloudFlare Pages`的域名还是可以访问，所以我们可以用CloudFlare Pages的Functions部署中转 **[部署方法](./cloudflare_proxy_pages.md)**
+
+
+
+**本文以下内容来自[noobnooc/discussions/9](https://github.com/noobnooc/noobnooc/discussions/9)有修改**
 
 1. 新建一个 Cloudflare Worker
 2. 复制 [cf_worker.js](https://cdn.jsdelivr.net/gh/x-dr/chatgptProxyAPI@main/cf_worker.js)  里的代码粘贴到 Worker 中并部署
@@ -40,6 +44,7 @@ addEventListener('fetch', event => {
 
 async function handleRequest(request) {
   const url = new URL(request.url);
+  const headers_Origin = request.headers.get("Access-Control-Allow-Origin") || "*"
   url.host = TELEGRAPH_URL.replace(/^https?:\/\//, '');
   const modifiedRequest = new Request(url.toString(), {
     headers: request.headers,
@@ -50,9 +55,10 @@ async function handleRequest(request) {
   const response = await fetch(modifiedRequest);
   const modifiedResponse = new Response(response.body, response);
   // 添加允许跨域访问的响应头
-  modifiedResponse.headers.set('Access-Control-Allow-Origin', '*');
+  modifiedResponse.headers.set('Access-Control-Allow-Origin', headers_Origin);
   return modifiedResponse;
 }
+
 ```
 
 
