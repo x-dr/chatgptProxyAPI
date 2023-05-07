@@ -1,4 +1,6 @@
 
+>  新项目,[基于 OpenAI + Wechat 微信机器人](https://github.com/x-dr/wechat-bot)
+
 ### Demo
 
 [https://chatai.1rmb.tk](https://chatai.1rmb.tk)
