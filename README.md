@@ -1,5 +1,5 @@
 
->  新项目,[基于 OpenAI + Wechat 微信机器人](https://github.com/x-dr/wechat-bot)
+>  新项目 [基于OpenAI的微信机器人](https://github.com/x-dr/wechat-bot)
 
 ### Demo
 
