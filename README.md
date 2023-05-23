@@ -6,11 +6,14 @@
 [https://chatai.1rmb.tk](https://chatai.1rmb.tk)
 
 > api
+
+```url
+https://openai.451024.xyz
+```
+
 ```url
 https://openai.1rmb.tk
 ```
-
-或
 
 ```url
 https://openai-proxy-api.pages.dev/api
