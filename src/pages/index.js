@@ -34,7 +34,6 @@ async function submit(key) {
       'Authorization': `Bearer ${key}`
     }
     // 查是否订阅
-    // const subscription = await fetch("https://openai.1rmb.tk/v1/dashboard/billing/subscription", {
     const subscription = await fetch("/api/v1/dashboard/billing/subscription", {
       method: 'get',
       headers: headers
@@ -48,18 +47,39 @@ async function submit(key) {
       const subscriptionData = await subscription.json()
       // console.log(subscriptionData);
       // console.log(subscriptionData.plan.id);
+      const billingendDate = Math.floor(Date.now() / 1000 + 24 * 60 * 60);
+      const billingstartDate = new Date(billingendDate - 90 * 24 * 60 * 60);
+
+      // 赠送额度有效期
       const endDate = subscriptionData.access_until
       const startDate = new Date(endDate - 90 * 24 * 60 * 60);
       console.log(formatDate(endDate, "YYYY-MM-DD"));
       console.log(formatDate(startDate, "YYYY-MM-DD"));
-      // const response = await fetch(`https://openai.1rmb.tk/v1/dashboard/billing/usage?start_date=${formatDate(startDate, "YYYY-MM-DD")}&end_date=${formatDate(endDate, "YYYY-MM-DD")}`, {
-      const response = await fetch(`/api/v1/dashboard/billing/usage?start_date=${formatDate(startDate, "YYYY-MM-DD")}&end_date=${formatDate(endDate, "YYYY-MM-DD")}`, {
+      // const response = await fetch(`/api/v1/dashboard/billing/usage?start_date=${formatDate(startDate, "YYYY-MM-DD")}&end_date=${formatDate(endDate, "YYYY-MM-DD")}`, {
+
+      // 查询90天内的使用情况
+      const response = await fetch(`/api/v1/dashboard/billing/usage?start_date=${formatDate(billingstartDate, "YYYY-MM-DD")}&end_date=${formatDate(billingendDate, "YYYY-MM-DD")}`, {
         method: 'get',
         headers: headers
       })
 
       const usageData = await response.json();
       console.log(usageData);
+
+      // 获取apiKey支持的最高GPT模型
+      const modelResponse = await fetch(`/api/v1/models`, {
+        method: 'get',
+        headers: headers
+      });
+      const modelData = await modelResponse.json();
+      const gptModels = modelData.data.filter(model => model.id.includes("gpt"));
+      const highestGPTModel = gptModels.reduce((prev, current) => {
+        const prevVersion = parseFloat(prev.id.split("-")[1]);
+        const currentVersion = parseFloat(current.id.split("-")[1]);
+        return (currentVersion > prevVersion) ? current : prev;
+      });
+      // console.log(highestGPTModel);
+      const GPTModel = highestGPTModel.id
       // 账号类型
       // const plan = subscriptionData.plan.title
       const plan = (subscriptionData.plan.title === "Pay-as-you-go") ? "Pay-as-you-go" : subscriptionData.plan.id;
@@ -71,7 +91,7 @@ async function submit(key) {
       // 剩余额度
       const total_available = total_granted - total_used;
 
-      return { plan, total_granted, total_used, total_available, endDate, startDate }
+      return { plan, total_granted, total_used, total_available, endDate, startDate, GPTModel }
 
     }
 
@@ -89,10 +109,6 @@ export default function Home() {
   const [latency, setLatency] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [proxylink, setproxyLink] = useState("");
-
-  // const router = useRouter();
-
-
 
   useEffect(() => {
     const { origin } = location;
@@ -211,8 +227,11 @@ export default function Home() {
               <p>额度总量：{balance.total_granted}</p>
               <p>已用额度：{balance.total_used}</p>
               <p>剩余额度：{balance.total_available}</p>
+              <p>最高模型：{balance.GPTModel}</p>
+              <p>有效期为赠送额度的有效期</p>
               <p>有效期起：{formatDate(balance.startDate)}</p>
               <p>有效期止：{formatDate(balance.endDate)}</p>
+
             </div>
           )}
 
