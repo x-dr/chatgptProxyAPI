@@ -13,7 +13,7 @@
 |  ----  | ----  |
 | Production branch  | main |
 | Framework preset  | next.js |
-| Build command	  | npx @cloudflare/next-on-pages --experimental-minify|
+| Build command	  | npx @cloudflare/next-on-pages@pre-v1 --experimental-minify|
 | Build directory  | .vercel/output/static|
 
 ![Cloudflare_pages3.png](./img/Cloudflare_pages3.png)

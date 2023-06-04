@@ -49,13 +49,13 @@ https://openai-proxy-api.pages.dev/api
 3. 在帐户主页中，选择`pages`> ` Create a project` > `Connect to Git`
 4. 选择你 Fork 的项目存储库，在`Set up builds and deployments`部分中，选择`Next.js`作为您的框架预设。您的选择将提供以下信息。
 
-> 一般默认即可
+ > ~~一般默认即可~~
 
 |  Configuration option	   | Value  |
 |  ----  | ----  |
 | Production branch  | main |
 | Framework preset  | next.js |
-| Build command	  | npx @cloudflare/next-on-pages --experimental-minify|
+| Build command	  | npx @cloudflare/next-on-pages@pre-v1 --experimental-minify |
 | Build directory  | .vercel/output/static|
 
 
