@@ -3,7 +3,7 @@
 
 ### Demo
 
-[https://chatai.1rmb.tk](https://chatai.1rmb.tk)
+[https://chatai.451024.xyz](https://chatai.451024.xyz)
 
 > api
 
@@ -11,9 +11,9 @@
 https://openai.451024.xyz
 ```
 
-```url
-https://openai.1rmb.tk
-```
+
+~~https://openai.1rmb.tk~~
+
 
 ```url
 https://openai-proxy-api.pages.dev/api
