@@ -1,5 +1,12 @@
 
->  新项目 [基于OpenAI的微信机器人](https://github.com/x-dr/wechat-bot)
+***
+### GPT 账号货源 5r/120刀独享号: [http://jqr.evv1.com/fk/](http://jqr.evv1.com/fk/)
+<a href="http://jqr.evv1.com/fk/">
+  <img src="./docs/img/jpg.webp" alt="GPT 账号货源 5r/120刀独享号" height="50%" width="50%" >
+</a>
+ 
+***
+
 
 ### Demo
 
@@ -18,6 +25,11 @@ https://openai.1rmb.tk
 ```url
 https://openai-proxy-api.pages.dev/api
 ```
+***
+
+>  新项目 [基于OpenAI的微信机器人](https://github.com/x-dr/wechat-bot)
+
+***
 
 ### 演示站为公共服务，如有大规模使用需求请自行部署，演示站有点不堪重负
 
