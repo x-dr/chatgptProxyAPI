@@ -1,13 +1,4 @@
 
-***
-### GPT 账号货源 5r/120刀独享号: [http://jqr.evv1.com/fk/](http://jqr.evv1.com/fk/)
-<a href="http://jqr.evv1.com/fk/">
-  <img src="./docs/img/jpg.webp" alt="GPT 账号货源 5r/120刀独享号" height="50%" width="50%" >
-</a>
- 
-***
-
-
 ### Demo
 
 [https://chatai.451024.xyz](https://chatai.451024.xyz)
