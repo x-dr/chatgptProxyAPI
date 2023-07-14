@@ -29,7 +29,7 @@ https://openai-proxy-api.pages.dev/api
 
 ### 1、部署中转API+ Openai API余额查询 
 
-> [官方文档](https://developers.cloudflare.com/pages/framework-guides/deploy-a-nextjs-site/)
+> [官方文档](https://developers.cloudflare.com/pages)
 
 1. ~~Fork本项目~~ 点击[Use this template](https://github.com/x-dr/chatgptProxyAPI/generate)按钮创建一个新的代码库。
 2. 登录到[Cloudflare](https://dash.cloudflare.com/)控制台.
