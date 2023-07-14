@@ -22,16 +22,16 @@
 
 ![Cloudflare_pages6.png](./img/Cloudflare_pages6.png)
 
-**至此便大功告成。等待片刻，应该就可以通过你自己的域名来代替 OpenAI 的 API 地址了，比如在本文搭建的api:`https://openai-proxy-api.pages.dev`为例子，想要请求 ChatGPT 的 API ，即是把官方 API 地址 https://api.openai.com/v1/chat/completions 换为我自己的域名 https://openai-proxy-api.pages.dev/v1/chat/completions ，其他参数均参照官方示例即可。由于 Cloudflare 有每天免费 10 万次的请求额度，所以轻度使用基本是零成本的。**
+**至此便大功告成。等待片刻，应该就可以通过你自己的域名来代替 OpenAI 的 API 地址了，比如在本文搭建的api:`https://openapi-dev.pages.dev`为例子，想要请求 ChatGPT 的 API ，即是把官方 API 地址 https://api.openai.com/v1/chat/completions 换为我自己的域名 https://openapi-dev.pages.dev/v1/chat/completions ，其他参数均参照官方示例即可。由于 Cloudflare 有每天免费 10 万次的请求额度，所以轻度使用基本是零成本的。**
 
 ### 使用 
 
-> 以我的搭建的服务`https://openai-proxy-api.pages.dev/` 为例
+> 以我的搭建的服务`https://openapi-dev.pages.dev/` 为例
 
 1. 对话
 
 ```bash
-curl --location 'https://openai-proxy-api.pages.dev/v1/chat/completions' \
+curl --location 'https://openapi-dev.pages.dev/v1/chat/completions' \
 --header 'Authorization: Bearer sk-xxxxxxxxxxxxxxx' \
 --header 'Content-Type: application/json' \
 --data '{
