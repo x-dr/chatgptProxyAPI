@@ -1,3 +1,4 @@
+//参考自 https://github.com/open-tdp/openai-chat
 const app = {
     u: '',
     alert: null,
