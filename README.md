@@ -40,8 +40,11 @@ https://openai-proxy-api.pages.dev/api
 5. 点击`Save and Deploy`部署，然后点`Continue to project`即可看到访问域名
 
 
-> 把官方接口的`https://api.openai.com`替换为`https://xxx.pages.dev` 即可 
+> 把官方接口的`https://api.openai.com`替换为`https://xxx.pages.dev` 即可
 
+**Demo**
+
+[https://chatai.451024.xyz](https://chatai.451024.xyz)
 
 **[详细教程](./docs/cloudflare_pages.md)**
 
