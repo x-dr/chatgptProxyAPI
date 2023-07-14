@@ -59,30 +59,15 @@ https://openai-proxy-api.pages.dev/api
 1. ~~Fork本项目~~ 点击[Use this template](https://github.com/x-dr/chatgptProxyAPI/generate)按钮创建一个新的代码库。
 2. 登录到[Cloudflare](https://dash.cloudflare.com/)控制台.
 3. 在帐户主页中，选择`pages`> ` Create a project` > `Connect to Git`
-4. 选择你 Fork 的项目存储库，在`Set up builds and deployments`部分中，选择`Next.js`作为您的框架预设。您的选择将提供以下信息。
+4. 选择你 Fork 的项目存储库，在`Set up builds and deployments`部分中，全部默认即可。
 
- > ~~一般默认即可~~
-
-|  Configuration option	   | Value  |
-|  ----  | ----  |
-| Production branch  | main |
-| Framework preset  | next.js |
-| Build command	  | npx @cloudflare/next-on-pages@pre-v1 --experimental-minify |
-| Build directory  | .vercel/output/static|
-
-
-> 在 `Environment variables (advanced)`添加一个参数
-
-|  Variable name	   | Value  |
-|  ----  | ----  |
-| NODE_VERSION   | 16 |
 
 5. 点击`Save and Deploy`部署，然后点`Continue to project`即可看到访问域名
 
 
-> 把官方接口的`https://api.openai.com`替换为`https://xxx.pages.dev/api` 即可 (https://xxx.pages.dev/api 为你的域名)
+> 把官方接口的`https://api.openai.com`替换为`https://xxx.pages.dev` 即可 
 
-*注意路径多了一个`api`*
+
 
 **[详细教程](./docs/cloudflare_pages.md)**
 

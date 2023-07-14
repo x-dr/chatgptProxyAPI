@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>OpenAI/ChatGPT 工具箱</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="https://cdn.bootcdn.net/ajax/libs/alpinejs/3.12.0/cdn.min.js"></script>
+    <link href="/assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/">Home</a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a class="nav-link" href="./gallery.html">Gallery</a>
+                    </li> -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="./about.html">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container kv-main">
+        <div class="page-header" x-data="{ origin: '' }" x-init="origin = window.location.origin">
+            <h2>查询 OpenaiAPI 余额</h2> 
+            <p>API接口: <span class="proxy"  x-text="origin" @click="copyToClipboard(origin)"></span> ;支持批量查询，一行一个；点击清理可以清理失效的key</p>
+        </div>
+        <main x-data="app" x-cloak>
+            <p x-show.transition.opacity="alert" :class="alert?.type" x-text="alert?.message"></p>
+            <textarea class="form-control" rows="5" placeholder="请输入以sk-开头的key..." x-model="u"></textarea></p>
+            <div class="d-grid gap-2 d-sm-block">
+                <button :class="{ loading }" class="btn btn-primary me-sm-3 " :disabled="loading"
+                    @click="submit($refs)">查询</button>
+                <button class="btn btn-secondary" @click="clear">清理</button>
+            </div>
+            <div x-show.transition.opacity="total && total.length > 0" x-cloak class="card mb-3">
+                <div class="card-body table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">API KEY</th>
+                                <th scope="col">账号类型</th>
+                                <th scope="col">最高模型</th>
+                                <th scope="col">额度总量</th>
+                                <th scope="col">已用额度</th>
+                                <th scope="col">剩余额度</th>
+                                <th scope="col">过期时间</th>
+                            </tr>
+                        </thead>
+                        <tbody x-show.transition.opacity="total" x-cloak>
+                            <template x-for="(item, index) in total" :key="index">
+                                <tr>
+                                    <th scope="row" x-text="index + 1"></th>
+                                    <td x-text="item.msgkey"></td>
+                                    <td x-text="item.plan"></td>
+                                    <td x-text="item.latest_gpt"></td>
+                                    <td x-text="item.total_granted"></td>
+                                    <td x-text="item.total_used"></td>
+                                    <td x-text="item.total_available"></td>
+                                    <td x-text="item.endDate"></td>
+                                </tr>
+                            </template>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <div class="page-footer"></div>
+
+    </div>
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="text-muted" x-data="ip" x-init='$nextTick(() => {getipinfo()})' x-show.transition.opacity="ipinfo"
+                x-text="ipinfo"></p>
+        </div>
+    </footer>
+    <script src="./assets/js/openai.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>
