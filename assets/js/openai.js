@@ -122,7 +122,7 @@ const app = {
             //总
             const total_granted = subscription.hard_limit_usd;
             //已用
-            const total_used = usageData.total_usage / 100
+            const total_used = usageData.total_usage / 100 || -1
             //剩余额度
             const total_available = total_granted - total_used;
 
