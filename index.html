@@ -12,31 +12,8 @@
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
     <script defer src="https://cdn.bootcdn.net/ajax/libs/alpinejs/3.12.0/cdn.min.js"></script>
     <link href="/assets/css/style.css" rel="stylesheet">
-
 </head>
-
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="/">Home</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="./gallery.html">Gallery</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="./about.html">About</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
     <div class="container kv-main">
         <div class="page-header" x-data="{ origin: '' }" x-init="origin = window.location.origin">
             <h2>查询 OpenaiAPI 余额</h2>
@@ -86,14 +63,7 @@
             </div>
         </main>
         <div class="page-footer"></div>
-
     </div>
-    <footer class="footer">
-        <div class="container text-center">
-            <p>本程序基于Cloudflare Pages，开源于GitHub <a href="https://github.com/x-dr/chatgptProxyAPI"
-                target="_blank">chatgptProxyAPI</a></p>
-        </div>
-    </footer>
     <script src="./assets/js/openai.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/js/bootstrap.min.js"></script>
 </body>
