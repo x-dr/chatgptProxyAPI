@@ -157,9 +157,8 @@ const ip = {
         fetch('https://forge.speedtest.cn/api/location/info')
             .then(res => res.json())
             .then(res => {
-                // console.log(res);
                 this.ipinfo = `当前IP: ${res.ip} (${res.province} ${res.city}  ${res.distinct} ${res.isp})  `
-
+                console.log(this.ipinfo);
             })
             .catch(err => {
                 console.log(err);
@@ -171,7 +170,7 @@ const ip = {
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text)
         .then(() => {
-            console.log(ip);
+            ip.getipinfo();
             alert('API已复制到剪贴板');
         })
         .catch((error) => {
