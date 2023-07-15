@@ -171,6 +171,7 @@ const ip = {
 function copyToClipboard(text) {
     navigator.clipboard.writeText(text)
         .then(() => {
+            console.log(ip);
             alert('API已复制到剪贴板');
         })
         .catch((error) => {
