@@ -122,9 +122,14 @@ const app = {
             //总
             const total_granted = subscription.hard_limit_usd;
             //已用
-            const total_used = usageData.total_usage / 100 || -1
+            // const total_used = usageData.total_usage / 100 || -1
+            const total_used = typeof usageData.total_usage === "number" ? usageData.total_usage / 100 : "查询失败";
+
+            // 剩余额度
+            const total_available = typeof total_used === "number" ? total_granted - total_used : "查询失败";
+            
             //剩余额度
-            const total_available = total_granted - total_used;
+            // const total_available = total_granted - total_used;
 
             if (!this.total) {
                 this.total = [];

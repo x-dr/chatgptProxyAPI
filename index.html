@@ -41,7 +41,7 @@
         <div class="page-header" x-data="{ origin: '' }" x-init="origin = window.location.origin">
             <h2>查询 OpenaiAPI 余额</h2>
             <p>API接口: <span class="proxy" x-text="origin" @click="copyToClipboard(origin)"></span>
-                ;支持批量查询，一行一个；点击清理可以清理失效的key。 (已用额度是-1时该key查询失败)</p>
+                ;支持批量查询，一行一个；点击清理可以清理失效的key。</p>
         </div>
         <main x-data="app" x-cloak>
             <p x-show.transition.opacity="alert" :class="alert?.type" x-text="alert?.message"></p>
