@@ -14,7 +14,7 @@ const app = {
 
     clear() {
         this.total = this.total.filter(item => {
-            return item.total_available && item.total_available > 0;
+            return item.total_available && (item.total_available > 0 || item.total_available === "查询失败");
         });
         this.u = this.total.map(item => item.key).join('\n');
         this.alert = { type: 'success', message: '清理完成' };
@@ -127,7 +127,7 @@ const app = {
 
             // 剩余额度
             const total_available = typeof total_used === "number" ? total_granted - total_used : "查询失败";
-            
+
             //剩余额度
             // const total_available = total_granted - total_used;
 
