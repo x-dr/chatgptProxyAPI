@@ -212,3 +212,35 @@ button.loading::before {
     border-radius: 5px;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h1 {
+    color: #0055b8;
+    font-size: 4rem;
+    margin-top: 80px;
+}
+
+
+main p {
+    color: #888;
+    font-size: 1.5rem;
+    line-height: 1.5;
+    max-width: 600px;
+    padding: 0 20px;
+    text-align: center;
+}
+
+
+/* main p {
+    color: red;
+    font-size: 14px;
+  } */
+  
