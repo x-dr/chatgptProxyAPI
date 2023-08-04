@@ -12,7 +12,6 @@
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.2.3/css/bootstrap.min.css" rel="stylesheet">
     <script defer src="https://cdn.bootcdn.net/ajax/libs/alpinejs/3.12.0/cdn.min.js"></script>
     <link href="/assets/css/style.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -37,24 +36,11 @@
             </div>
         </div>
     </nav>
-<<<<<<< HEAD
-    <main>
-        <h1>OpenAI API Proxy</h1>
-        <br />
-        <p x-data="{ origin: '' }" x-init="origin = window.location.origin">
-            使用方法把官方的api连接: https://api.openai.com <br />
-
-            改为 <span class="proxy" x-text="origin" @click="copyToClipboard(origin)"></span> 即可
-        </p>
-        <br /><br />
-        <p>演示站为公共服务，如有大规模使用需求请自行部署，演示站有点不堪重负</p>
-    </main>
-=======
     <div class="container kv-main">
         <div class="page-header" x-data="{ origin: '' }" x-init="origin = window.location.origin">
             <h2>查询 OpenaiAPI 余额</h2>
             <p>API接口: <span class="proxy" x-text="origin" @click="copyToClipboard(origin)"></span>
-                ;支持批量查询，一行一个；点击清理可以清理失效的key。<a style="text-decoration: none;" href="/about.html">Authorization获取方法</a></p>
+                ;支持批量查询，一行一个；点击清理可以清理失效的key。<a style="text-decoration: none;" href="/about.html">Authorization获取方法</a> </p>
         </div>
         <main x-data="app" x-cloak>
             <p x-show.transition.opacity="alert" :class="alert?.type" x-text="alert?.message"></p>
@@ -64,6 +50,7 @@
                     @click="submit($refs)">查询</button>
                 <button class="btn btn-secondary" @click="clear">清理</button>
             </div>
+            <p></p>
             <div x-show.transition.opacity="total && total.length > 0" x-cloak class="card mb-3">
                 <div class="card-body table-responsive">
                     <table class="table">
@@ -92,12 +79,19 @@
                                     <td x-text="item.endDate"></td>
                                 </tr>
                             </template>
->>>>>>> pages
 
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+        <div class="page-footer"></div>
 
     </div>
     <footer class="footer">
         <div class="container text-center">
+            <!-- <p class="text-muted" x-data="ip" x-init='$nextTick(() => {getipinfo()})' x-show.transition.opacity="ipinfo"
+                x-text="ipinfo"></p> -->
             <p>本程序基于Cloudflare Pages，开源于GitHub <a href="https://github.com/x-dr/chatgptProxyAPI"
                     target="_blank">chatgptProxyAPI</a></p>
         </div>
