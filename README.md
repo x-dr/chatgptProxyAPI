@@ -27,7 +27,7 @@ https://openai-proxy-api.pages.dev/api
 
 ## 使用CloudFlare Pages进行中转
 
-### 1、部署中转API+ Openai API余额查询 
+### 1、部署中转API+ Openai API余额查询 (使用sess-xxxx的Authorization查询，有效时间未知)
 
 > [官方文档](https://developers.cloudflare.com/pages)
 
