@@ -7,7 +7,7 @@ const app = {
     isValidated() {
         const inputText = this.u.trim();
         // 使用正则表达式匹配以 "sk-" 开头的密钥，并排除非匹配项
-        const regex = /^sk-.{21,}$/;
+        const regex =  /^(sk-|sess-).{21,}$/;
         const keys = inputText.split('\n').filter(key => regex.test(key.trim()));
         return keys
     },
@@ -22,7 +22,7 @@ const app = {
 
     async submit($refs) {
         if (!this.u) {
-            this.alert = { type: 'error', message: '请输入以sk-开头的key...' }
+            this.alert = { type: 'error', message: '请输入以sess-开头的Authorization...' }
             return
         }
         const keys = this.isValidated();
@@ -92,7 +92,7 @@ const app = {
             }
             this.total.push({
                 key: key,
-                msgkey: key.replace(/(sk-.{5}).+(.{5})/, '$1****$2'),
+                msgkey: key.replace(/(sess-.{5}).+(.{5})/, '$1****$2'),
                 total_granted: 0,
                 total_used: 0,
                 total_available: 0,

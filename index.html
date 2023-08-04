@@ -45,7 +45,7 @@
         </div>
         <main x-data="app" x-cloak>
             <p x-show.transition.opacity="alert" :class="alert?.type" x-text="alert?.message"></p>
-            <textarea class="form-control" rows="5" placeholder="请输入以sk-开头的key..." x-model="u"></textarea></p>
+            <textarea class="form-control" rows="5" placeholder="请输入以sess-xxxx开头的Authorization" x-model="u"></textarea></p>
             <div class="d-grid gap-2 d-sm-block">
                 <button :class="{ loading }" class="btn btn-primary me-sm-3 " :disabled="loading"
                     @click="submit($refs)">查询</button>
