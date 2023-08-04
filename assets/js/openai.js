@@ -136,7 +136,7 @@ const app = {
             }
             this.total.push({
                 key: key,
-                msgkey: key.replace(/(sk-.{5}).+(.{5})/, '$1****$2'),
+                msgkey: key.replace(/(sess-.{5}).+(.{5})/, '$1****$2'),
                 total_granted: total_granted,
                 total_used: total_used,
                 total_available: total_available,
