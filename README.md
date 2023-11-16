@@ -1,6 +1,8 @@
-#### [号卡中心-专注优质号卡套餐服务](https://hk.bjjii.com/?p=ookk)
-<a href="https://hk.bjjii.com/?p=ookk">
-<img src="https://img1.131213.xyz/file/9c3e8df16c352c05233ed.png" height="50%" width="50%" /></a>
+
+*中转已失效*
+
+
+<img src="https://image.3001.net/images/20231116/1700131811_6555f3e30a1efc2db761f.png" height="50%" width="50%" /></a>
 
 
 ---
